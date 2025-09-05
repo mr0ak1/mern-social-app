@@ -1,0 +1,24 @@
+.App {
+  min-height: 100vh;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.2rem;
+}
+
+/* Chat responsive styles */
+@media (max-width: 768px) {
+  .desktop-layout {
+    display: none !important;
+  }
+  .mobile-layout {
+    display: block !important;
+  }
+  .mobile-back-btn {
+    display: block !important;
+  }
+}

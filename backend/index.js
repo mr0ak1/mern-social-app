@@ -27,6 +27,7 @@ app.use(
       "http://127.0.0.1:3000",
       "http://localhost:3001",
       "http://127.0.0.1:3001",
+      "https://mern-social-app-1-l6p9.onrender.com",
     ],
     credentials: true,
   })

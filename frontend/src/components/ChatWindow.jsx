@@ -165,19 +165,20 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
             marginRight: "1rem",
             padding: "0.5rem",
             borderRadius: "50%",
-            display: "none", // Will show on mobile
+            display: "none",
+            color: "#007bff",
           }}
           className="mobile-back-btn"
         >
           ←
         </button>
 
-        <div 
+        <div
           style={{
-            display: "flex", 
-            alignItems: "center", 
-            flex: 1, 
-            cursor: "pointer"
+            display: "flex",
+            alignItems: "center",
+            flex: 1,
+            cursor: "pointer",
           }}
           onClick={handleProfileClick}
         >
@@ -207,6 +208,7 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
 
       {/* Messages Area */}
       <div
+        className="chat-messages"
         style={{
           flex: 1,
           padding: "1rem",
@@ -242,6 +244,7 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
       {/* Message Input */}
       <form
         onSubmit={handleSendMessage}
+        className="message-input-form"
         style={{
           padding: "1rem",
           borderTop: "1px solid #eee",
@@ -255,6 +258,7 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
             onChange={(e) => setNewMessage(e.target.value)}
             placeholder="Type a message..."
             disabled={sending}
+            className="message-input"
             style={{
               flex: 1,
               padding: "0.75rem 1rem",
@@ -286,6 +290,38 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
           </button>
         </div>
       </form>
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .mobile-back-btn {
+            display: block !important;
+          }
+
+          .post-header {
+            padding: 0.8rem !important;
+          }
+
+          .post-content {
+            padding: 0.8rem !important;
+          }
+
+          .post-actions {
+            padding: 0.8rem !important;
+            flex-wrap: wrap !important;
+          }
+
+          .chat-messages {
+            padding: 0.8rem !important;
+          }
+
+          .message-input-form {
+            padding: 0.8rem !important;
+          }
+
+          .message-input {
+            font-size: 16px !important; /* Prevent zoom on iOS */
+          }
+        }
+      `}</style>
     </div>
   )
 }

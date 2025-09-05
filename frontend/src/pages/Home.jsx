@@ -54,15 +54,18 @@ const Home = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container mobile-home">
       <div className="feed">
         <div className="posts-container">
           <CreatePost onPostCreated={handlePostCreated} />
 
-          <div style={{marginBottom: "2rem"}}>
-            <div style={{display: "flex", gap: "1rem", marginBottom: "1rem"}}>
+          <div className="tab-container" style={{marginBottom: "2rem"}}>
+            <div
+              className="tab-buttons"
+              style={{display: "flex", gap: "1rem", marginBottom: "1rem"}}
+            >
               <button
-                className={`btn ${
+                className={`btn mobile-tab-btn ${
                   activeTab === "posts" ? "btn-primary" : "btn-secondary"
                 }`}
                 onClick={() => setActiveTab("posts")}
@@ -70,7 +73,7 @@ const Home = () => {
                 Posts ({posts.length})
               </button>
               <button
-                className={`btn ${
+                className={`btn mobile-tab-btn ${
                   activeTab === "reels" ? "btn-primary" : "btn-secondary"
                 }`}
                 onClick={() => setActiveTab("reels")}
@@ -81,9 +84,10 @@ const Home = () => {
           </div>
 
           {activeTab === "posts" && (
-            <div>
+            <div className="posts-grid">
               {posts.length === 0 ? (
                 <div
+                  className="empty-state"
                   style={{textAlign: "center", padding: "2rem", color: "#666"}}
                 >
                   No posts yet. Create your first post!
@@ -108,9 +112,10 @@ const Home = () => {
           )}
 
           {activeTab === "reels" && (
-            <div>
+            <div className="reels-grid">
               {reels.length === 0 ? (
                 <div
+                  className="empty-state"
                   style={{textAlign: "center", padding: "2rem", color: "#666"}}
                 >
                   No reels yet. Create your first reel!
@@ -135,7 +140,7 @@ const Home = () => {
           )}
         </div>
 
-        <div className="sidebar">
+        <div className="sidebar mobile-sidebar">
           <h3>Welcome, {user?.name}!</h3>
           <div style={{marginTop: "1rem"}}>
             <p>
@@ -153,6 +158,62 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .mobile-home {
+            padding: 1rem 0.5rem !important;
+          }
+
+          .feed {
+            gap: 1rem !important;
+          }
+
+          .mobile-sidebar {
+            order: -1 !important;
+            position: static !important;
+            margin-bottom: 1rem !important;
+            padding: 1rem !important;
+          }
+
+          .tab-container {
+            margin-bottom: 1rem !important;
+          }
+
+          .tab-buttons {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+          }
+
+          .mobile-tab-btn {
+            width: 100% !important;
+            padding: 0.75rem !important;
+          }
+
+          .empty-state {
+            padding: 1.5rem !important;
+            margin: 0.5rem !important;
+            background: white !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .mobile-home {
+            padding: 0.5rem 0.25rem !important;
+          }
+
+          .mobile-sidebar {
+            padding: 0.8rem !important;
+          }
+
+          .mobile-tab-btn {
+            padding: 0.6rem !important;
+            font-size: 0.9rem !important;
+          }
+        }
+      `}</style>
     </div>
   )
 }

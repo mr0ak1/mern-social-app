@@ -10,7 +10,7 @@
   font-size: 1.2rem;
 }
 
-/* Chat responsive styles */
+/* Enhanced Chat responsive styles */
 @media (max-width: 768px) {
   .desktop-layout {
     display: none !important;
@@ -20,5 +20,58 @@
   }
   .mobile-back-btn {
     display: block !important;
+  }
+
+  /* Ensure full height utilization on mobile */
+  .App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Mobile chat window improvements */
+  .chat-window-mobile {
+    height: calc(100vh - 120px) !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Mobile message input improvements */
+  .mobile-message-input {
+    padding: 0.75rem 1rem;
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    border-radius: 20px;
+    border: 2px solid #ddd;
+  }
+
+  .mobile-message-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  /* Mobile navigation improvements */
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+}
+
+/* Touch-friendly button sizes for mobile */
+@media (max-width: 768px) {
+  .btn {
+    min-height: 44px; /* iOS recommended touch target */
+    padding: 0.75rem 1rem;
+  }
+
+  /* Improve tap targets for mobile */
+  .post-actions button,
+  .mobile-action-btn {
+    min-height: 44px;
+    padding: 0.75rem 1rem;
   }
 }

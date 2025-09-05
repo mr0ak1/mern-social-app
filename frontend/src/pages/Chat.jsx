@@ -100,14 +100,34 @@ const Chat = () => {
 
       <style jsx>{`
         @media (max-width: 768px) {
+          .container {
+            padding: 1rem 0.5rem !important;
+          }
+
           .desktop-layout {
             display: none !important;
           }
+
           .mobile-layout {
             display: block !important;
           }
+
           .mobile-back-btn {
             display: block !important;
+          }
+
+          /* Full height on mobile */
+          div[style*="height: 80vh"] {
+            height: calc(100vh - 140px) !important;
+            border-radius: 0 !important;
+            border-left: none !important;
+            border-right: none !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          div[style*="height: 80vh"] {
+            height: calc(100vh - 120px) !important;
           }
         }
       `}</style>

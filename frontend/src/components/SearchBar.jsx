@@ -62,6 +62,7 @@ const SearchBar = () => {
   return (
     <div
       ref={searchRef}
+      className="search-bar-container"
       style={{position: "relative", width: "100%", maxWidth: "400px"}}
     >
       <div style={{position: "relative"}}>
@@ -70,6 +71,7 @@ const SearchBar = () => {
           value={query}
           onChange={handleInputChange}
           placeholder="Search users..."
+          className="mobile-search-input"
           style={{
             width: "100%",
             padding: "0.5rem 1rem",
@@ -86,6 +88,7 @@ const SearchBar = () => {
         />
         {isLoading && (
           <div
+            className="search-loading"
             style={{
               position: "absolute",
               right: "1rem",
@@ -102,6 +105,7 @@ const SearchBar = () => {
 
       {showResults && (
         <div
+          className="search-results"
           style={{
             position: "absolute",
             top: "100%",
@@ -118,7 +122,10 @@ const SearchBar = () => {
           }}
         >
           {results.length === 0 ? (
-            <div style={{padding: "1rem", textAlign: "center", color: "#666"}}>
+            <div
+              className="no-results"
+              style={{padding: "1rem", textAlign: "center", color: "#666"}}
+            >
               {query ? "No users found" : "Start typing to search users..."}
             </div>
           ) : (
@@ -130,6 +137,52 @@ const SearchBar = () => {
           )}
         </div>
       )}
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .search-bar-container {
+            width: 100% !important;
+            max-width: none !important;
+          }
+
+          .mobile-search-input {
+            padding: 0.75rem 1rem !important;
+            font-size: 16px !important; /* Prevent zoom on iOS */
+            border-radius: 20px !important;
+            border: 2px solid #ddd !important;
+          }
+
+          .mobile-search-input:focus {
+            border-color: #007bff !important;
+          }
+
+          .search-results {
+            left: -10px !important;
+            right: -10px !important;
+            max-height: 300px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+          }
+
+          .no-results {
+            padding: 1.5rem 1rem !important;
+            font-size: 0.9rem !important;
+          }
+
+          .search-loading {
+            right: 1rem !important;
+            font-size: 0.75rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .search-results {
+            left: -15px !important;
+            right: -15px !important;
+            max-height: 250px !important;
+          }
+        }
+      `}</style>
     </div>
   )
 }

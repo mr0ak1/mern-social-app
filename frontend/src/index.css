@@ -8,6 +8,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f9fa;
   color: #333;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .container {
@@ -201,12 +202,121 @@ body {
   margin-top: 0.25rem;
 }
 
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .nav-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-links a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
   .feed {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .sidebar {
+    order: -1;
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .auth-form {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .post-card {
+    margin: 0 0.5rem;
+  }
+
+  .post-header {
+    padding: 0.8rem;
+  }
+
+  .post-content {
+    padding: 0.8rem;
+  }
+
+  .post-actions {
+    padding: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* Mobile user info section */
+  .mobile-user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .mobile-user-info .profile-pic {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-user-info span {
+    font-size: 0.8rem;
+  }
+
+  /* Hide desktop elements on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .feed {
+    grid-template-columns: 1fr 300px;
+    gap: 1.5rem;
   }
 
   .container {
-    padding: 0 10px;
+    padding: 0 15px;
+  }
+
+  .nav-content {
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 0.8rem;
+  }
+
+  .nav-links a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
   }
 }

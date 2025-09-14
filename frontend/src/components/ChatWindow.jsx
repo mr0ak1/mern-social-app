@@ -26,7 +26,6 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
     scrollToBottom()
   }, [messages])
 
-  // Mark messages as seen when user scrolls to bottom or interacts with chat
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (!document.hidden && selectedUser) {
@@ -67,11 +66,8 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
 
     try {
       await chatAPI.markMessagesAsSeen(selectedUser._id)
-      // Refresh messages to update seen status
       fetchMessages()
-      // Refresh unread count in navbar
       refreshUnreadCount()
-      // Notify parent component to refresh chat list
       if (onMessagesMarkedAsSeen) {
         onMessagesMarkedAsSeen()
       }
@@ -91,7 +87,6 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
         newMessage.trim()
       )
 
-      // Add the new message to the list with sender info
       const messageWithSender = {
         ...response,
         sender: {
@@ -145,7 +140,6 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
         backgroundColor: "white",
       }}
     >
-      {/* Chat Header */}
       <div
         style={{
           padding: "1rem",
@@ -206,7 +200,6 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
         </div>
       </div>
 
-      {/* Messages Area */}
       <div
         className="chat-messages"
         style={{
@@ -241,7 +234,6 @@ const ChatWindow = ({selectedUser, onBack, onMessagesMarkedAsSeen}) => {
         )}
       </div>
 
-      {/* Message Input */}
       <form
         onSubmit={handleSendMessage}
         className="message-input-form"

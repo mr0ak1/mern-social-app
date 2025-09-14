@@ -12,7 +12,6 @@ const NotificationBell = () => {
   useEffect(() => {
     fetchUnreadCount()
 
-    // Set up polling for unread count every 30 seconds
     const interval = setInterval(fetchUnreadCount, 30000)
 
     return () => clearInterval(interval)
@@ -222,7 +221,6 @@ const NotificationBell = () => {
                 }}
                 onClick={() => {
                   setIsOpen(false)
-                  // Navigate to notifications page if you create one
                 }}
               >
                 View all notifications

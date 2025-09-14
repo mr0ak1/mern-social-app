@@ -105,7 +105,7 @@ const CreatePost = ({onPostCreated}) => {
                 rows="3"
                 className="mobile-textarea"
                 placeholder="Write a caption..."
-                style={{fontSize: "16px"}} // Prevent zoom on iOS
+                style={{fontSize: "16px"}} //
               />
             </div>
 

@@ -25,12 +25,10 @@ const Chat = () => {
   const handleBack = () => {
     setShowChatWindow(false)
     setSelectedUser(null)
-    // Refresh chat list when going back
     setRefreshChatList((prev) => prev + 1)
   }
 
   const handleMessagesMarkedAsSeen = () => {
-    // Callback to refresh chat list when messages are marked as seen
     setRefreshChatList((prev) => prev + 1)
   }
 

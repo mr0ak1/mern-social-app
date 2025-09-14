@@ -31,10 +31,8 @@ const NotificationItem = ({notification, onUpdate}) => {
   }
 
   const handleNotificationClick = async () => {
-    // Mark as read
     await handleMarkAsRead()
 
-    // Navigate based on notification type
     if (notification.type === "message") {
       navigate("/chat", {
         state: {
@@ -50,10 +48,8 @@ const NotificationItem = ({notification, onUpdate}) => {
       notification.type === "like" ||
       notification.type === "comment"
     ) {
-      // Navigate to the home feed where the post would be visible
       navigate("/")
     }
-    // Add more navigation logic for other notification types as needed
   }
 
   const handleDelete = async () => {

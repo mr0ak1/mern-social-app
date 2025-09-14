@@ -10,7 +10,6 @@ const PostCard = ({post, onUpdate, onDelete}) => {
   const [newComment, setNewComment] = useState("")
   const [loading, setLoading] = useState(false)
 
-  // Add safety checks
   if (!post || !post.owner || !user) {
     return null
   }

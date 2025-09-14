@@ -12,7 +12,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  // Handle scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
@@ -21,7 +20,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (isMobileMenuOpen && !event.target.closest(".navbar")) {
@@ -49,14 +47,12 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="container">
         <div className="nav-content">
-          {/* Header - Always visible */}
           <div className="nav-header">
             <Link to="/" className="logo" onClick={closeMobileMenu}>
               <span className="logo-icon">📱</span>
               <span className="logo-text">SocialApp</span>
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="desktop-nav">
               <div className="search-container">
                 <SearchBar />
@@ -196,7 +192,6 @@ const Navbar = () => {
       </div>
 
       <style jsx>{`
-        /* Base Navbar Styles */
         .navbar {
           background: white;
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -223,7 +218,6 @@ const Navbar = () => {
           padding: 1rem 0;
         }
 
-        /* Logo Styles */
         .logo {
           display: flex;
           align-items: center;
@@ -243,7 +237,6 @@ const Navbar = () => {
           font-size: 1.8rem;
         }
 
-        /* Desktop Navigation */
         .desktop-nav {
           display: flex;
           align-items: center;
@@ -324,7 +317,6 @@ const Navbar = () => {
           }
         }
 
-        /* User Section */
         .user-section {
           display: flex;
           align-items: center;
@@ -367,7 +359,6 @@ const Navbar = () => {
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Mobile Menu Button */
         .mobile-menu-btn {
           display: none;
           background: none;
@@ -384,7 +375,6 @@ const Navbar = () => {
           background-color: #f8f9fa;
         }
 
-        /* Hamburger Animation */
         .hamburger {
           width: 24px;
           height: 18px;
@@ -415,24 +405,20 @@ const Navbar = () => {
           transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* Mobile Overlay */
         .mobile-overlay {
           display: none;
         }
 
-        /* Mobile Menu */
         .mobile-menu {
           display: none;
         }
 
-        /* Desktop Media Query */
         @media (min-width: 769px) {
           .mobile-menu-btn {
             display: none !important;
           }
         }
 
-        /* Mobile Media Query */
         @media (max-width: 768px) {
           .desktop-nav {
             display: none !important;
@@ -522,7 +508,7 @@ const Navbar = () => {
             transition: all 0.3s ease;
             margin: 0 0.5rem;
             position: relative;
-            min-height: 44px; /* iOS touch target */
+            min-height: 44px;
           }
 
           .mobile-nav-link:hover,
@@ -576,7 +562,6 @@ const Navbar = () => {
           }
         }
 
-        /* Small Mobile Screens */
         @media (max-width: 480px) {
           .mobile-menu {
             width: 100vw;
@@ -600,7 +585,6 @@ const Navbar = () => {
           }
         }
 
-        /* Tablet Styles */
         @media (max-width: 1024px) and (min-width: 769px) {
           .search-container {
             max-width: 400px;

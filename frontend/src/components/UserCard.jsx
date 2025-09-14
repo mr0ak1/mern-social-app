@@ -8,7 +8,6 @@ const UserCard = ({user}) => {
   const [isFollowing, setIsFollowing] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // Update following status when currentUser data changes
   useEffect(() => {
     if (currentUser?.followings) {
       setIsFollowing(currentUser.followings.includes(user._id))
@@ -23,7 +22,6 @@ const UserCard = ({user}) => {
     try {
       await userAPI.followUser(user._id)
       setIsFollowing(!isFollowing)
-      // Update the current user's following count
       await updateUser()
     } catch (error) {
       console.error("Failed to follow/unfollow user:", error)

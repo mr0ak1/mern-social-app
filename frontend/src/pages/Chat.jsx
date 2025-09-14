@@ -9,7 +9,6 @@ const Chat = () => {
   const [showChatWindow, setShowChatWindow] = useState(false)
   const [refreshChatList, setRefreshChatList] = useState(0)
 
-  // Check if a user was passed from profile page
   useEffect(() => {
     if (location.state?.selectedUser) {
       setSelectedUser(location.state.selectedUser)
@@ -20,7 +19,6 @@ const Chat = () => {
   const handleChatSelect = (user) => {
     setSelectedUser(user)
     setShowChatWindow(true)
-    // Refresh chat list to update unread counts
     setRefreshChatList((prev) => prev + 1)
   }
 
